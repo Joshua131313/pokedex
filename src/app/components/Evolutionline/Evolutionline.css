@@ -1,0 +1,47 @@
+
+.evolutionline {
+  justify-content: space-between;
+  align-items: center;
+}
+.evolutionline img {
+  width: 50px;
+}
+.trigger {
+  background-color: var(--gray);
+  border: solid 1px #eee;
+  border-radius: 30px;
+  flex: 1;
+  top: 4px;
+  max-width: 100px;
+
+}
+.trigger span {
+  
+}
+.itemimg {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.itemimg img{
+  width: 25px
+}
+.evolutionitem .rskeletonimg {
+  width: 50px;
+  height: 50px
+}
+.evolutionitem {
+  cursor: pointer
+}
+.evolutionwebitem {
+  justify-content: space-between;
+  padding-left: 30px
+}
+.evolutions {
+  flex: 1
+}
+.evolutionline > .evolutionitem {
+  position: sticky;
+  top: 0;
+  align-self: flex-start
+}

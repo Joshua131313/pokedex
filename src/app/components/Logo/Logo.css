@@ -1,0 +1,20 @@
+.logo {
+  padding: 0 10px;
+  cursor: pointer
+}
+.logo img {
+  height: 55px;
+  align-items: center;
+  transition: all 0.3s
+}
+.logo .pokeball {
+  height: 50px;
+  margin-top: 12px;
+}
+
+.logo:hover .pokeball {
+  transform: rotate(25deg)
+}
+.logo .pokeball:active {
+  transform: scale(0.98) rotate(25deg)
+}

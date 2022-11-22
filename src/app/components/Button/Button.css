@@ -1,0 +1,160 @@
+.appbtn {
+  padding: 7px 10px;
+  background-color: var(--theme-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold
+}
+.appbtn:active {
+  transform: scale(0.98)
+}
+.appbtn img {
+   height: 20px;
+   margin-right: 10px;
+   transition: all 0.3s
+}
+.appbtn:hover img {
+  transform: rotate(25deg)
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+.appbtn i {
+  color: #fff;
+}
+
+.reverse i {
+  margin-left: 15px;
+}
+
+.appbtn:hover {
+  filter: brightness(105%)
+}
+.logincont .googlebtn{
+  background-color: #dd4b39;
+  color: #fff;
+  display: flex;
+ }
+ .diflogin {
+   display: flex;
+   justify-content: center;
+   height: 35px;
+   align-items: center;
+ }
+ .diflogin i {
+   position: absolute;
+   left: 25px
+ }
+ .logincont .googlebtn:hover, .logincont .facebookbtn:hover {
+   filter: brightness(95%);
+ }
+ 
+ .logincont .facebookbtn {
+  color: white;
+  border: solid 1px rgba(0, 0, 0, 0);
+  background-color: #fff
+ }
+ .logincont .facebookbtn i {
+  color: white;
+ }
+ 
+ .logincont .facebookbtn:active,.logincont .googlebtn:active {
+   transform: scale(0.98)
+ }
+ .outline {
+  background-color: #fff;
+  color: #000;
+  border: solid 1px #222
+}
+ .outline:hover {
+  background-color: #222;
+  color: #fff;
+  border: solid 1px transparent
+}
+.appbtn:disabled {
+  cursor: no-drop;
+}
+.appbtn.hide {
+  opacity: 0;
+  pointer-events: none
+}
+
+.custombtns {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.googlebtn{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  max-width: 100%;
+}
+.facebookbtn {
+  width: 100%;
+  background-color: #fff;
+  color: #000
+}
+.googlebtn:active {
+  transform: scale(0.98)
+}
+.googlebtn:hover {
+  background-color: rgb(243, 243, 243)
+}
+.googlebtn span {
+  font-size: 13px
+}
+.googlebtn img {
+  width: 25px;
+  height: 25px
+}
+.othermethods  > span {
+  font-size: 12px
+}
+.pokebtn {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: var(--theme-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: var(--theme-shadow);
+}
+.pokebtnrelative {
+  position: relative;
+  top: initial;
+  right: initial;
+  transform: initial
+}
+.pokebtn:active {
+  transform: scale(0.97) translateY(-50%);
+}
+.pokebtnrelative:active {
+  transform: scale(0.97)
+}
+.pokebtn img {
+  width: 100%;
+  height: 100%;
+}
+.loaderbtn {
+  color: var(--theme-color);
+  font-size: 30px;
+}

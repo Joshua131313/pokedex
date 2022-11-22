@@ -1,0 +1,79 @@
+.pokemoncard img {
+  width: 100px;
+}
+.pokemoncard {
+  width: 250px;
+  background-color: #fff;
+  margin-top: 10px;
+  height: 150px;
+  box-shadow: var(--light-shadow);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer; 
+  transition: all 0.3s;
+}
+.selectedpokecard {
+  background-color: var(--theme-color);
+}
+.pokemoncard:hover {
+  background-color: var(--theme-color);
+}
+.pokemoncard:hover span,
+.pokemoncard:hover .shinyicon {
+  color: #fff;
+}
+
+.selectedpokecard span,
+.selectedpokecard .shinyicon {
+  color: #fff;
+}
+.pokemoncardinfo {
+  align-items: center;
+  margin-top: 35px;
+}
+.pokemoncardinfo .pokemonid {
+}
+.pokemoncard .imgloaded {
+  position: absolute;
+  top: -50px;
+}
+.pokemonid {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--gray-text);
+}
+.pokename {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.pokemontype {
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 2px 5px;
+  text-align: center;
+  display: flex;
+}
+.pokemoncard:hover a,
+.selectedpokecard a {
+  color: #fff !important;
+}
+.pokemoncardinfo a:hover {
+  text-decoration: underline;
+}
+.fa-sparkles {
+  z-index: 100;
+}
+.types {
+  gap: 5px;
+}
+.pokemoncard .shinyicon {
+  font-size: 16px;
+  top: 15px;
+  right: 15px;
+}

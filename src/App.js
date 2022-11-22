@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+import Notifisystem from "./Notification/Notifisystem";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import ContextAppProvider from "./ContextAPI";
+import firebase from 'firebase'
+import { AppContainer } from "./AppContainer";
 
-function App() {
+export default function App() {
+  const [pokemon, setPokemon] = useState({});
+  const [user, setUser] = useState('')
+  const [rdy, setRdy] = useState(false)
+  useEffect(() => {
+    axios.get("https://pokeapi.co/api/v2/pokemon/lugia").then((result) => {
+      setPokemon(result.data);
+    });
+    // pokemon.sprites.other.home.front_default
+    // pokemon.sprites.other.home.front_shiny
+  }, []);
+  const authListener = () => {
+    firebase.auth().onAuthStateChanged(user=>{
+      if(user) {
+        setUser(user)
+      }
+      else {
+        setUser('')
+      }
+      setRdy(true)
+    })
+  }
+  useEffect(()=>{
+    authListener()
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ContextAppProvider>
+        <Notifisystem />
+        <AppContainer />
+      </ContextAppProvider>
+    </Router>
   );
 }
-
-export default App;

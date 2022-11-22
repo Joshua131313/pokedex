@@ -1,0 +1,60 @@
+.defaultvalue {
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center
+}
+.defaultvalue > div:first-of-type {
+  margin-right: 10px
+}
+#root .defaultvalue i {
+  font-weight: bold;
+}
+.appselect  {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px
+}
+.appselectoptions {
+  position: absolute;
+  z-index: 111;
+  background-color: #fff;
+  padding: 8px;
+  box-shadow: var(--light-shadow);
+  border-radius: 5px;
+  font-size: 12px;
+  top: 60px;
+  transition: all 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  left: 0
+}
+.activeselect .appselectoptions {
+  opacity: 1;
+  pointer-events: initial;
+  top: 40px
+}
+.selectoption {
+  background-color: var(--gray);
+  padding: 3px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+  transition: all 0.3s
+}
+.selectedoption:active {
+  transform: scale(0.97)
+}
+.selectoption:hover , .selectedoption {
+  background-color: #eee
+}
+.selectoption {
+  justify-content: space-between;
+  margin-top: 7px;
+}
+.selectoption:first-of-type {
+  margin-top: 0
+}
+.selectoption i {
+  margin-right: 5px;
+}

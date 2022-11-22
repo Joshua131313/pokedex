@@ -1,0 +1,39 @@
+.appinput {
+  display: flex;
+  flex-direction: column;
+}
+.appinput span {
+  font-size: 13px;
+}
+.appinput i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  font-size: 12px;
+  left: 10px;
+}
+.appinput img {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%) rotate(25deg);
+  transition: all 0.3s;
+}
+.appinput input {
+  padding-left: 25px;
+  border-radius: 10px;
+  font-size: 12px
+}
+.appinput input:valid + i, .appinput input:focus + i{
+}
+#root .outlined {
+  padding: 5px;
+  background-color: transparent;
+  border: solid 1px var(--gray-text);
+  border-radius: 5px;
+  text-align: right
+}

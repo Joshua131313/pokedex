@@ -1,0 +1,156 @@
+.sidebar {
+  position: absolute;
+  bottom: 15px;
+  width: 130px;
+  box-shadow: var(--light-shadow);
+  height: calc(100vh - 80px);
+  background-color: #fff;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  left: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.bodynav a {
+  z-index: 100;
+}
+.sidhidden {
+  transform: translateX(-110px);
+}
+.preview {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.previewv {
+  opacity: 1;
+}
+.sid {
+  width: 130px;
+  height: 100vh;
+  transition: all 0.3s;
+  position: fixed;
+}
+.sidebar .type {
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+.sidebar::-webkit-scrollbar {
+  width: 0;
+}
+
+.hidesidebaricon {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: -20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 10px;
+  border-radius: 0 5px 5px 0;
+  font-size: 12px;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.hidesidebaricon i {
+  color: var(--theme-color);
+}
+.bodynav {
+  position: absolute;
+  top: 10px;
+  left: 175px;
+  height: 50px;
+  background-color: #fff;
+  width: calc(100% - 190px);
+  box-shadow: var(--light-shadow);
+  border-radius: 10px;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.bodynav a {
+  color: var(--gray-text);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 4px;
+  transition: all 0.3s;
+  text-align: center
+}
+.bodynav a:hover,
+.bodynav .activelink {
+  color: var(--theme-color);
+}
+.sidebar .appbtn {
+  width: 100%;
+}
+@media (max-width: 800px) {
+  .bodynav a {
+    font-size: 15px
+  }
+  .body .logo {
+    margin-top: 10px
+  }
+ #root .body .logo img {
+    height: 30px
+  }
+  .bodynav {
+    width: calc(100% - 135px);
+    left: 130px
+  }
+}
+@media (max-width: 600px) {
+  .bodynav a {
+    font-size: 12px
+  }
+  .filterbar .upperbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start
+  }
+}
+@media (max-width: 440px) {
+  .filterbar .upperbar .startendids {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%
+  }
+  .filterbar .upperbar .start {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+  }
+  .filterbar .upperbar .pokebtn  {
+    align-self: flex-end
+  }
+  .range  {
+    width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      max-width: 100px;
+      flex-direction: row
+  }
+  .range div span {
+    display: none
+  }
+  #root .clearhistory  {
+    align-self: flex-start;
+    width: 100%
+  }
+}

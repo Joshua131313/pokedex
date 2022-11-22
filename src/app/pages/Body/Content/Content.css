@@ -1,0 +1,529 @@
+.content {
+  position: absolute;
+  left: 150px;
+  top: 70px;
+  width: calc(100% - 160px);
+  height: calc(100% - 85px);
+  transition: all 0.3s;
+}
+.pokedexpage {
+  width: 100%;
+  overflow-y: auto;
+  height: 100%;
+}
+.pokedexpage::-webkit-scrollbar {
+  width: 10px;
+}
+.pokemoncont {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.searchbar {
+  z-index: 100;
+}
+.pokemontcontainers h3 {
+  margin: 20px 0px 40px 10px;
+}
+#root .pokecontlist h3 {
+  margin:  10px 0
+}
+.searchbar input {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px 15px;
+  border-radius: 5px;
+  box-shadow: var(--light-shadow);
+}
+.searchbar i {
+  color: #fff;
+}
+
+.pokemondetails {
+  width: 250px;
+  height: calc(100% - 80px);
+  background-color: #fff;
+  position: absolute;
+  bottom: 10px;
+  box-shadow: var(--light-shadow);
+  border-radius: 10px;
+  z-index: 100;
+  transition: all 0.3s;
+  padding: 10px 20px;
+}
+.pokemondetails .hidepokedetails {
+  left: -10px;
+  border-radius: 10px 0 0 10px;
+  top: 45%;
+  width: 15px;
+}
+.seabar {
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.603);
+  border-radius: 10px;
+  padding: 10px
+}
+.selectpokeimg {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.selectpokeimg img {
+  width: 150px;
+}
+.pokemondetails {
+  z-index: 1000;
+}
+.innerpokemondetails {
+  height: calc(100% - 170px);
+  overflow-y: scroll;
+  padding-bottom: 10px;
+}
+.innerpokemondetails::-webkit-scrollbar {
+  width: 0;
+}
+.pokemondetails .pokemoncardinfo {
+  margin-top: 100px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #eee;
+}
+.desctitle {
+  text-align: center;
+  margin-top: 10px;
+  border-top: solid 1px #eee;
+  padding-top: 10px;
+}
+.innerpokemondetails .desctitle:first-of-type {
+  border-top: none;
+}
+.pokedescr {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-text);
+}
+.noselected {
+  text-align: center;
+  margin-top: 10px
+}
+.gray {
+  color: var(--gray-text);
+}
+.abilityrow {
+  gap: 10px;
+  margin-top: 6px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.bubble {
+  background-color: var(--gray);
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: solid 1px #eee;
+  font-size: 13px;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+.detailrow {
+  gap: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+.detailrow > div {
+  width: 100%;
+}
+
+.abilityrow .hiddenability {
+  background-color: var(--theme-color);
+  color: #fff;
+}
+.ability i {
+  color: #fff;
+  margin-left: 5px;
+}
+.detail span {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#root .weaknessexp {
+  flex-wrap: wrap;
+}
+.weaknessexp .detail {
+}
+.weaknessexp .bubble {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  justify-content: flex-start;
+}
+.weaknessexp .bubble::-webkit-scrollbar {
+  height: 0;
+}
+.weaknessexp .weakness {
+  font-size: 10px;
+  color: #fff;
+  padding: 5px;
+  border-radius: 30px;
+  min-width: 40px;
+}
+.statsrow {
+  justify-content: space-around;
+}
+.abilitymodal h2 {
+  text-transform: capitalize;
+}
+.abilitydescrip span {
+  font-size: 14px;
+}
+.abilitymodal .closeicon {
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+}
+.searchbar {
+  margin-top: 20px;
+}
+.startendids {
+  gap: 10px;
+  
+}
+#root .amount {
+  width: 50px;
+}
+.start span {
+  font-size: 12px;
+  margin-right: 5px
+}
+.startendids .pokebtn {
+  background-color: #444;
+  box-shadow: none
+}
+#root .clearhistory {
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.clearhistorybtn {
+  background-color: var(--theme-color);
+  padding: 4px 9px;
+  font-size: 12px;
+  color: #fff;;
+  border-radius: 20px;
+  transition: all 0.3s;
+  border: solid 1px transparent;
+  cursor: pointer
+}
+.clearhistorybtn:active {
+  transform: scale(0.98)
+}
+.clearhistorybtn:hover {
+  background-color: #fff;
+  color: var(--theme-color);
+  border: solid 1px var(--theme-color)
+}
+.filterbar  {
+  margin-top: 10px;
+  padding: 0 10px
+}
+.bottomdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px
+}
+.videogamesrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.videogamesrow > div {
+  margin: 8px
+}
+.range div span {
+  font-size: 12px
+}
+.range div i{
+  margin-right: 5px;
+  font-size: 12px
+}
+.range input {
+}
+.listpokemon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.selectedpokepreview {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--gray);
+  z-index: 100;
+  box-shadow: var(--light-shadow);
+  transition: all 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+.selectedpokeitem {
+  justify-content: flex-start;
+  text-transform: capitalize;
+  font-size: 13px;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  align-items: center;
+  transition: all 0.3s;
+  padding: 3px;
+  cursor: pointer;
+}
+.activeselectedpokepreview {
+  top: 40px;
+  opacity: 1;
+  pointer-events: initial
+}
+.selectedpokeitem:hover, .activeselectedpokeitem {
+  background-color: #eee
+}
+.selectedpokeitem:active {
+  transform: scale(0.97)
+}
+.selectedpokeitem .imgloaded {
+  margin-right: 5px
+}
+.selectedpokeitem .imgloaded img{
+  width: 30px
+}
+.selectedpokeitem .imgloaded div {
+  width: 30px;
+  height: 30px
+}
+.activeselectedpokeitem .imgloaded div {
+  background-color: #fff
+}
+.pokemonpage {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  max-height: 100%;
+  padding-bottom: 10px
+}
+.pokemonpageinfo {
+  
+}
+.pokemonpage .imgloaded {
+  justify-content: center;
+  display: flex;
+}
+.pokemonpage .imgloaded img, .pokemonpage .imgloaded div {
+  width: 200px;
+  height: 200px
+}
+.pokemonpageinfo .pokemoncardinfo .pokemonid {
+  font-size: 22px
+}
+.pokemonpageinfo .pokemoncardinfo .pokename {
+  font-size: 25px
+}
+#root .nextprevpoke {
+  display: flex;
+  margin-top: 15px;
+  padding: 4px;
+  gap: 23px
+}
+.nextpoke {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.nextpoke .pokename {
+  margin-bottom: 0;
+  font-size: 13px;
+  margin-right: 5px
+}
+.nextpoke:last-of-type .pokename {
+  margin-left: 5px;
+  margin-right: 0
+}
+.nextpoke .pokemonid {
+  font-size: 11px
+}
+.nextpoke {
+  transition: all 0.3s;
+  border-radius: 30px;
+  padding: 2px;
+  max-width: 114px;
+  overflow-x: auto
+}
+.nextpoke:hover {
+  background-color: #fff
+}
+.nextpoke::-webkit-scrollbar {
+  height: 0;;
+}
+.nextpoke:last-of-type {
+  flex-direction: row-reverse
+}
+.nextprevpoke .nextpoke img, .nextpoke .imgloaded div {
+  width: 30px;
+  height: 30px
+}
+.seperator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background-color: #eee
+}
+.boxinfo {
+  background-color: rgba(255, 255, 255, 0.753);
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px;
+  box-shadow: var(--light-shadow)
+}
+.moves {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.moveslistview {
+  flex-direction: column;
+}
+.moveslistview .move {
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+  margin: 0;
+  gap: 5px;
+  border-radius: 0;
+}
+.moveslistview .move:first-of-type {
+  border-radius: 10px 10px 0 0  
+}
+.moveslistview .move:last-of-type {
+  border-radius: 0 0 10px 10px
+}
+.moveslistview .move .learnedby, .moveslistview .move .lmethod {
+  position: absolute;
+  right: 10px
+}
+.moveslistview .move .learnedby {
+  right: 90px
+}
+.moveslistview .move:hover {
+  background-color: #fff;
+}
+.move {
+  margin: 5px;
+  font-size: 12px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--gray);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.move:hover {
+  box-shadow: var(--theme-shadow)
+}
+.move .movename {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.lmethod {
+  text-transform: capitalize;
+  font-weight: bold;
+  color: var(--theme-color)
+}
+.uncap {
+  text-transform: initial
+}
+.boxtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px
+}
+
+.listview  {
+  display: flex;
+}
+
+#root .listviewpoke {
+  flex-direction: column;
+  row-gap: 0;
+  column-gap: 0
+}
+#root .listviewpoke .pokemoncard {
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 70px;
+  width: 100%
+}
+#root .listviewpoke .pokemoncard .shinyicon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+#root .listviewpoke .pokemoncard .imgloaded {
+  position: relative;
+}
+#root .listviewpoke .pokemoncard img, #root .listviewpoke .pokemoncard .imgloaded div {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px
+}
+#root .listviewpoke .pokemoncard .pokemoncardinfo {
+  flex-direction: row;
+  margin: 0;
+  width: 100%
+}
+#root .listviewpoke .pokemoncard:first-of-type {
+  border-radius: 10px 10px 0 0
+}
+#root .listviewpoke .pokemoncard:last-of-type {
+  border-radius: 0 0 10px 10px
+}
+#root .listviewpoke .pokemoncard .pokemoncardinfo  .pokename {
+  margin: 0;
+  margin-left: 5px
+}
+#root .listviewpoke .pokemoncard .pokemoncardinfo  .types {
+  position: absolute;
+  right: 30px
+}
+#root .listviewpoke .pokemoncard .pokemoncardinfo .types .pokemontype {
+  padding: 3px
+}
+.extracontrols {
+  margin-top: 20px;
+  gap: 10px;
+}

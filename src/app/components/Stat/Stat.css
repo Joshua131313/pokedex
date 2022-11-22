@@ -1,0 +1,24 @@
+.statcircle {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold
+}
+.stat {
+  background-color: var(--gray);
+  border-radius: 20px;
+  padding: 3px 2px;
+  border: solid 1px #eee;
+  transition: all 0.3s;
+}
+.stat span {
+  margin-top: 2px
+}
+.stat .statval {
+  font-size: 10px
+}
