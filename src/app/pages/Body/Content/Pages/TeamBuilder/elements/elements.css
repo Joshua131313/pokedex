@@ -1,0 +1,60 @@
+.teamcard {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: var(--card-shadow);
+    border-radius: 20px;
+    display: flex;
+    max-width: 250px;
+    flex-direction: column;
+}
+.teamcard a {
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 160px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    align-self: flex-start;
+}
+.teamcard a:hover {
+    text-decoration: underline;
+    color: var(--theme-color)
+}
+.pokemongrid {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-top: 20px;
+}
+.pokemonicon, .emptyslot {
+    background-color: var(--theme-bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.emptyslot i {
+    font-size: 20px;
+}
+.emptyslot:hover {
+    background-color: var(--theme-color);
+}
+.emptyslot:hover i {
+    color: #fff;
+}
+
+.pokemonicon .imgloaded img {
+    width: 60px;
+    height: 60px;
+}
+.pokemonicon span {
+    text-transform: capitalize;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--gray-text);
+}

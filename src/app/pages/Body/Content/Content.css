@@ -219,7 +219,8 @@
   border-radius: 20px;
   transition: all 0.3s;
   border: solid 1px transparent;
-  cursor: pointer
+  cursor: pointer;
+  align-self: center;
 }
 .clearhistorybtn:active {
   transform: scale(0.98)
@@ -526,4 +527,5 @@
 .extracontrols {
   margin-top: 20px;
   gap: 10px;
+  justify-content: center;
 }

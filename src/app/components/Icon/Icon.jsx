@@ -3,11 +3,11 @@ import './Icon.css'
 
 const Icon = (props) => {
 
-  const {icon, clickEvent} = props
+  const {icon, onClick} = props
   
   return (
     <div className="icon">
-        <i className={icon} onClick={()=> clickEvent()}></i>
+        <i className={icon} onClick={()=> onClick()}></i>
     </div>
   )
 }

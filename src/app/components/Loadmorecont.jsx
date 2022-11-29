@@ -9,10 +9,10 @@ const Loadmorecont = ({fetchMore, setFetchMore, pokedex, complete}) => {
       return <i className='fas fa-circle-notch fa-spin loaderbtn'></i>
     }
     else if(activeType.name === 'all') {
-      return <Button text='Load more' clickEvent={()=> setFetchMore(true)}/>
+      return <Button text='Load more' onClick={()=> setFetchMore(true)}/>
     }
     else if (!pokedex) {
-      return <Button text='Load more' clickEvent={()=> setFetchMore(true)}/>
+      return <Button text='Load more' onClick={()=> setFetchMore(true)}/>
     }
     return ''
   }

@@ -5,14 +5,15 @@ import firebase from 'firebase';
 const useGetTeams = props => {
     const [teams, setTeams] = useState([])
     const user = firebase.auth().currentUser
+ 
     useEffect(()=> {
-        db.collection('users').doc(user.uid).collection('teams').onSnapshot(snapshot=> {
+       user && db.collection('users').doc(user.uid).collection('teams').onSnapshot(snapshot=> {
             const teams = snapshot.docs.map(doc => doc.data())
             setTeams(teams)
         })
     }, [user])
 
-    return teams
+    return [teams, setTeams]
 };
 
 useGetTeams.propTypes = {

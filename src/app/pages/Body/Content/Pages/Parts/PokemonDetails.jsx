@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../../../../../ContextAPI'
 import { pokemonDetailsDimensions } from '../../../../../data/Arrays'
-import getMultipliers, {getWeaknesses, reduceTypes, replaceSpecialChar } from '../../../../../utils/Functions'
+import getMultipliers, {editState, getWeaknesses, reduceTypes, replaceSpecialChar } from '../../../../../utils/Functions'
 import useGetSpeciesDetails from '../../../../../services/GetSpeciesDetails'
 import AbilityModal from './AbilityModal'
 import Nextprevpoke from './Nextprevpoke'
@@ -12,17 +12,18 @@ import Pokemoncardinfo from '../../../../../components/Pokemoncard/Pokemoncardin
 import Stat from '../../../../../components/Stat/Stat'
 import Button from '../../../../../components/Button/Button'
 import Dropdown from '../../../../../components/Dropdown/Dropdown'
+import { createNewTeam, generateID } from '../../../../../utils/DBFunctions'
 import useGetTeams from '../../../../../services/GetTeams'
-import { createNewTeam } from '../../../../../utils/DBFunctions'
 
 const PokemonDetails = ({left, responsiveWidth}) => {
-  const {hidePokeDetails, shinyArray,  setHidePokeDetails, selectedPoke, setSelectedPoke, setActiveType} = useContext(StoreContext)
+  const {hidePokeDetails, shinyArray,  setHidePokeDetails, selectedPoke, setSelectedPoke, setActiveType, teams, setTeams} = useContext(StoreContext)
   const [selected, setSelected] = useState(selectedPoke[selectedPoke.length-1])
   const speciesDetails = useGetSpeciesDetails({pokemon: selected?.id})
   const [selectedAbility, setSelectedAbility] = useState('')
   const [showOptions, setShowOptions] = useState(false)
   const [openID, setOpenID] = useState(null)
-  const teams = useGetTeams()
+  // const [teams, setTeams] = useGetTeams()
+
   // console.log(speciesDetails)
   let reducedtypes = reduceTypes(selected?.types) || []
   const multipliers = reducedtypes.length && getMultipliers(reducedtypes)
@@ -83,18 +84,11 @@ const PokemonDetails = ({left, responsiveWidth}) => {
       text: 'New team',
       onClick: ()=> {
         let teamName = prompt('New team name:')
-        createNewTeam(teamName, [{
-          pokemonId: selected.id,
-          name: selected.name,
-          imgs: selected.sprites,
-          stats: selected.stats,
-          types: selected.types,
-          abilities: selected.abilities
-        }])
+        createNewTeam(teamName, selected, teams, (val)=> setTeams(val))
       }
     }
   ]
-
+  
   useEffect(()=> {
     setSelected(selectedPoke[selectedPoke.length-1])
   }, [selectedPoke])

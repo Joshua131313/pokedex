@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import './Dropdown.css'
 import { Link } from 'react-router-dom';
 import { addPokemonToTeam } from '../../utils/DBFunctions';
+import AddPokemon from '../Button/AddPokemon';
 
 const Dropdown = (props) => {
   const {options, openID, setOpenID, id, top, pokemon} = props
@@ -34,17 +35,14 @@ const Dropdown = (props) => {
     }
     else if (option.teamName) {
       return (
-        <div key={i} onClick={()=> !option.pokemon.some(x=> x.name === pokemon.name) && addPokemonToTeam(option, {
-          pokemonId: pokemon.id,
-          name: pokemon.name,
-          imgs: pokemon.sprites,
-          stats: pokemon.stats,
-          types: pokemon.types,
-          abilities: pokemon.abilities
-        })} className='dropoption teamoption'>
+        <AddPokemon 
+          team={option}
+          pokemon={pokemon}
+          key={i}
+          className='dropoption teamoption'>
           <img src="https://i.imgur.com/9vjciKz.png" alt="" />
           <span>{option.teamName}</span>
-        </div>
+        </AddPokemon>
       )
     }
     else {

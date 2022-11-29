@@ -1,5 +1,5 @@
 export const links = [
-  { text: "Home", img: "", link: "", component: "Home" },
+  { text: "Home", img: "", link: "", component: "Home", index: true },
   { text: "Pokedex", img: "", link: "pokedex", component: "Pokedex" },
   {
     text: "Team Builder",

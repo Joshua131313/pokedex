@@ -25,7 +25,7 @@ import { clean } from "../../../../../utils/Functions"
         }): props.children}
       </div>
       <div className="limitbtn flexrow" style={{marginTop: 10}}>
-        {limitBtn && <Button text='Load more' clickEvent={()=> setLimit(prev=> prev + 15)}/>}
+        {limitBtn && <Button text='Load more' onClick={()=> setLimit(prev=> prev + 15)}/>}
       </div>
     </div>
   )

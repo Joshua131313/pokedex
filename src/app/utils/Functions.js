@@ -11,7 +11,11 @@ export function writeUserdocuments(user, email, name, cover = "") {
         cover: cover,
         email,
         name
-      }
+      },
+      shinyArray: [],
+      searchResult: [],
+      selectedPoke: [],
+      teams: []
     });
 }
 
@@ -258,3 +262,12 @@ export const getCardSizes = (
     return width / (defaultwidth / defaultvalue);
   }
 };
+
+export const editState = (state, id, idKey) => {
+  let tempState = [...state]
+  let index = tempState.findIndex(x=> x[idKey] === id)
+  return {
+    tempState,
+    index
+  }
+}

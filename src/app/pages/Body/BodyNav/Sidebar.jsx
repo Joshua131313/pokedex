@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../../../ContextAPI'
 import Button from '../../../components/Button/Button'
-import LogoutWrapper from '../../../components/LogoutWrapper/LogoutWrapper'
 import useGetTypes from '../../../services/GetPokemonTypes'
 import { handleLogout } from '../../../utils/DBFunctions'
 import './BodyNav.css' 
 import Type from './Type'
+import AuthHandler from '../../../components/AuthHandler/AuthHandler'
 
 const Sidebar = () => {
   const types = useGetTypes()
@@ -22,9 +22,7 @@ const Sidebar = () => {
       </div>
       <div className="sidebar flexcol">
         {typesrow}
-        <LogoutWrapper>
-          <Button text='Logout' />
-        </LogoutWrapper>
+        <AuthHandler  />
       </div>
     </div>
   )

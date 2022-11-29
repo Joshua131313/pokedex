@@ -11,7 +11,7 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
   const fetchPoke = (url, key, handleAction) => {
     axios.get(url).then((results)=> {
       let reversed =  isDsc? [...results.data[key]].reverse():[...results.data[key]]
-        setPokemon(prev=> [...prev, ...reversed])
+        setPokemon(prev=> prev[0]?.name === reversed[0].name ? [...prev] : [...prev, ...reversed])
         setLength(results.data.count)
         if(isDsc) {
           setNextFetch(results.data.previous)
@@ -21,7 +21,7 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
           setNextFetch(results.data.next)
         }
         handleAction && handleAction()
-      }).catch((err)=> {console.log(err)})
+      }).catch(()=> addNoti('fal fa-exclamation-circle', 'Something went wrong...'))
   }
   const handleLimit = () => {
    return limit >= 0?limit:parseFloat(offset)-parseFloat(end)
@@ -35,9 +35,7 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
     }
     return offset
   }
-  useEffect(()=> {
-    setPokemon([])
-  }, [limit, offset, order, isDsc])
+ 
   useEffect(()=> {
     if (fetchMore) {
         if(activeType.name === 'all') {
@@ -63,12 +61,11 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
   //     return ()=> clearInterval(timerId)
   // }, [scrolledBtm, activeType, pokemon, nextFetch, lastFetched, order, activeType])
   useEffect(()=> {
+    setPokemon([])
     if(activeType.name === 'all') {
-      setPokemon([])
       fetchPoke(`https://pokeapi.co/api/v2/pokemon?limit=${handleLimit()}&offset=${parseFloat(handleOffset())}`, 'results')
     } 
     else {
-      setPokemon([])
       fetchPoke(`https://pokeapi.co/api/v2/type/${activeType.name}`, 'pokemon')
     }
   }, [limit, activeType, offset, order])

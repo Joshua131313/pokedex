@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../../../ContextAPI";
 import { determineColor, getCardSizes } from "../../utils/Functions";
+import AddShiny from "../Button/AddShiny";
 import ImgLoaded from "../Imgloaded/Imgloaded";
 
 const Pokemoncardinfo = (props) => {
@@ -21,16 +22,7 @@ const Pokemoncardinfo = (props) => {
   let sizes = (val) => {
     return getCardSizes(width, val, defaultwidth, ignoreInline);
   };
-  const handleShinyArray = () => {
-    let tempState = [...shinyArray];
-    if (tempState.includes(pokemon.id)) {
-      let index = tempState.indexOf(pokemon.id);
-      tempState.splice(index, 1);
-    } else {
-      tempState.push(pokemon.id);
-    }
-    setShinyArray([...tempState]);
-  };
+
   const typesrow = pokemon?.types?.map((type) => {
     return (
       <div
@@ -59,20 +51,21 @@ const Pokemoncardinfo = (props) => {
 
   return (
     <>
-      <i
+      <AddShiny 
+        pokemon={pokemon}
+        el='i'
         className={`${
           !shinyArray?.includes(pokemon?.id) ? "fal" : "fa"
         } fa-sparkles shinyicon`}
         onClick={(e) => {
           e.stopPropagation();
-          handleShinyArray();
         }}
         style={{
           fontSize: sizes(16),
           top: sizes(15),
           right: sizes(15)
         }}
-      ></i>
+      ></AddShiny>
       <ImgLoaded
         sizes={sizes}
         width={sizes(100)}

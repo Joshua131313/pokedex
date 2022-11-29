@@ -151,7 +151,7 @@ const Login = ({setUser}) => {
         </div>
         <div className="btnsinput">
           <GoogleAndFb />
-          <Button clickEvent={()=> deterMineEvent()} text={hasAccount?"Login":'Register'} img='https://i.imgur.com/snG6Fa8.png'/>
+          <Button onClick={()=> deterMineEvent()} text={hasAccount?"Login":'Register'} img='https://i.imgur.com/snG6Fa8.png'/>
         </div>
       </div>
     </div>

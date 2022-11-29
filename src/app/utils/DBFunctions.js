@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 import { db } from '../../Fire'
+import { editState } from './Functions'
 export const generateID = () => {
   return db.collection('users').doc().id
 }
@@ -103,22 +104,66 @@ export const GetFromDB = (collection, setState) => {
     setState(result)
   })
 }
-export const createNewTeam = (teamName, pokemon) => {
+export const createNewTeam = (teamName, pokemon, teams, setTeams) => {
   const user = firebase.auth().currentUser
-  let id = generateID()
-  console.log('asd')
-  db.collection('users').doc(user.uid).collection('teams').doc(id).set({
-    teamId: id,
-    teamName: teamName,
-    pokemon: [
-      ...pokemon
-    ]
-  })
+  let pokeObj = {
+    pokemonId: pokemon.id,
+    name: pokemon.name,
+    imgs: pokemon.sprites,
+    stats: pokemon.stats,
+    types: pokemon.types,
+    abilities: pokemon.abilities
+  }
+  const id = generateID()
+  if(user) {
+    const collectionRef = db.collection('users').doc(user.uid).collection('teams').doc(id)
+    const batch = db.batch()
+    batch.set(
+      collectionRef.set({
+        teamId: id,
+        teamName: teamName
+      })
+    )
+    batch.set(
+      collectionRef.collection('pokemon').doc(pokemon.id).set(pokeObj)
+    )
+    batch.commit().then(()=> {}).catch(err=> console.log(err))
+    // let transaction = db.runTransaction(transaction=> {
+    //   transaction.set(collectionRef, {
+    //     teamId: id,
+    //     teamName
+    //   })
+    // })
+  }
+  else {
+    let tempState = [...teams]
+    tempState.push({
+      teamName,
+      teamId: id,
+      pokemon: [pokeObj]
+    })
+    setTeams(tempState)
+  }
 }
-export const addPokemonToTeam = (team, pokemon) => {
+export const addPokemonToTeam = (team, pokemon, teams, setTeams) => {
   const user = firebase.auth().currentUser
-
-  db.collection('users').doc(user.uid).collection('teams').doc(team.teamId).update({
-    pokemon: firebase.firestore.FieldValue.arrayUnion(pokemon)
-  })
+  const id = generateID()
+  if((!team.pokemon.some(x=> x.name === pokemon.name) && team.pokemon.length < 6)) {
+   if(user) {
+    db.collection('users').doc(user.uid).collection('teams').doc(team.teamId).collection('pokemon').doc(pokemon.pokemonId).set({
+     pokemon
+    }) 
+   }
+   else {
+      const {tempState, index} = editState(teams, team.teamId, 'teamId')
+      tempState[index].pokemon.push(pokemon)
+      setTeams(tempState)
+   }
+  } 
 }
+export const handleShinyArray = (pokemon) => {
+  const user = firebase.auth().currentUser
+      db.collection('users').doc(user.uid).update({
+          shinyArray: firebase.firestore.FieldValue.arrayUnion(pokemon.id)
+      })
+};

@@ -8,7 +8,7 @@ import Homepage from "./app/pages/Body/Content/Pages/Home";
 import News from "./app/pages/Body/Content/Pages/News";
 import Pokedex from "./app/pages/Body/Content/Pages/Pokedex";
 import Pokemonpage from "./app/pages/Body/Content/Pages/Pokemonpage";
-import Teambuilder from "./app/pages/Body/Content/Pages/Teambuilder";
+import Teambuilder from "./app/pages/Body/Content/Pages/TeamBuilder/Teambuilder";
 import Videogames from "./app/pages/Body/Content/Pages/Videogames";
 import LandingPage from "./app/pages/LandingPage/LandingPage";
 import Login from "./app/pages/Login/Login";
@@ -31,7 +31,7 @@ export const AppContainer = (props) => {
   const routesrow = links.map(route=> {
     let Component = components[route.component]
     return (
-      <Route exact path={'/'+route.link} element={<Component />} />
+      <Route exact index={route.index} path={route.link+'/*'} element={<Component />} />
     )
   })
   useEffect(()=> {
@@ -48,44 +48,15 @@ export const AppContainer = (props) => {
         <>
 
         <Routes>  
-           {user ? 
-        //   <Route path='/'  element={<Home />}>
-        //     {/* {routesRender} */}
-        //      <Route index path='/' element={<Feed />}/>
-        //      <Route path='media' element={<Media />}>
-        //        <Route  index element={<AlbumsRender />} />
-        //        <Route  path="create-album" element={<AddAlbum />} />
-        //        <Route path=':albumName/:albumId' element={<AlbumPage />} />
-        //      </Route>
-        //      <Route path='chats' element={<Chat />}>
-        //         <Route index element={<EmptyBox />} />
-        //         <Route path='new-chat' element={<NewChat />} />
-        //         <Route path=':userid' element={<ChatBox />} />
-        //      </Route> 
-        //      <Route path='/reels'>
-
-        //      </Route>
-        //      <Route path='/market'>
-
-        //      </Route>
-        //      <Route path='/events'>
-
-        //      </Route>
-        //      <Route path='apps/*' element={<AppsRoutes /> } />
-        //       <Route path='friends/*' element={<FriendsRoutes />}/>
-        //       {/* <Route path=':category' element={<CategoryPage />}/>
-        //       <Route path="saved" element={<>Saved</>} /> */}
-        //    </Route>
-          <Route  path='/' element={<Body />}>
-             {routesrow}
-             <Route path={`/pokedex/pokemon&${id}`} element={<Pokemonpage />} />
-          </Route>
-           :
-            <>
-            <Route exact index element={<LandingPage />} />
+            <Route path='/' element={<Body />}>
+              {routesrow}
+              <Route path={`/pokedex/pokemon&${id}`} element={<Pokemonpage />} />
+            </Route>
             <Route path='/login'  element={<Login user={user} setUser={setUser} />} />
-            </>
-            }
+              <>
+              {/* <Route exact index element={<LandingPage />} /> */}
+             </>
+            
         </Routes>
         </>
       ) : (
