@@ -31,7 +31,7 @@
 }
 .sid {
   width: 130px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   transition: all 0.3s;
   position: absolute;
 }
