@@ -6,7 +6,7 @@
   transform: translateX(-50%) translateY(-50%)
 }
 .body {
-  height: calc(100vh - 80px);
+  height: 100vh
 }
 .body > .logo {
   position: absolute;
@@ -16,3 +16,4 @@
 .body > .logo img {
   height: 40px
 }
+
