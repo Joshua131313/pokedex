@@ -3,7 +3,7 @@
   left: 150px;
   top: 70px;
   width: calc(100% - 160px);
-  height: calc(100% - 85px);
+  height: var(--container-height);
   transition: all 0.3s;
 }
 .pokedexpage {
@@ -44,7 +44,7 @@
 
 .pokemondetails {
   width: 250px;
-  height: calc(100% - 80px);
+  height: var(--container-height);
   background-color: #fff;
   position: absolute;
   bottom: 10px;
