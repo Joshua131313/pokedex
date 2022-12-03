@@ -26,6 +26,7 @@ const ContextAppProvider = (props) => {
     setTeams(JSON.parse(localStorage.getItem('teams')) || [])
     setInitLS(true)
   }
+  console.log(activeType)
  
   
   const authListener = () => {

@@ -10,8 +10,14 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
   const isDsc = order === 'dsc' || offset > end 
   const fetchPoke = (url, key, handleAction) => {
     axios.get(url).then((results)=> {
+      console.log(results)
       let reversed =  isDsc? [...results.data[key]].reverse():[...results.data[key]]
-        setPokemon(prev=> prev[0]?.name === reversed[0].name ? [...prev] : [...prev, ...reversed])
+        if(activeType.name === 'all') {
+          setPokemon(prev=> prev[0]?.name === reversed[0].name ? [...prev] : [...prev, ...reversed])
+        }
+        else {
+          setPokemon(prev=> [...prev, ...reversed])
+        }
         setLength(results.data.count)
         if(isDsc) {
           setNextFetch(results.data.previous)
@@ -42,7 +48,7 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
           fetchPoke(nextFetch, 'results', setFetchMore)
         }
         else {
-          fetchPoke(`https://pokeapi.co/api/v2/type/${activeType.name}`, 'pokemon', setFetchMore)
+          fetchPoke(activeType.url, 'pokemon', setFetchMore)
         }
       }
   }, [fetchMore, activeType])
@@ -66,7 +72,7 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
       fetchPoke(`https://pokeapi.co/api/v2/pokemon?limit=${handleLimit()}&offset=${parseFloat(handleOffset())}`, 'results')
     } 
     else {
-      fetchPoke(`https://pokeapi.co/api/v2/type/${activeType.name}`, 'pokemon')
+      fetchPoke(activeType.url, 'pokemon')
     }
   }, [limit, activeType, offset, order])
   
