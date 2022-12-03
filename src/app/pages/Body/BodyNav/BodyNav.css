@@ -3,7 +3,6 @@
   bottom: 15px;
   width: 130px;
   box-shadow: var(--light-shadow);
-  height: var(--container-height);
   background-color: #fff;
   gap: 10px;
   padding: 10px;
@@ -12,6 +11,7 @@
   left: 10px;
   border-radius: 10px;
   transition: all 0.3s;
+  top: 0;
 }
 .bodynav a {
   z-index: 100;
@@ -31,10 +31,10 @@
 }
 .sid {
   width: 130px;
-  height: calc(100vh - 70px);
+  height: calc(100dvh - 75px);
   transition: all 0.3s;
   position: absolute;
-  top: 70px;
+  top: 75px;
 }
 .sidebar .type {
   padding: 10px 10px;
