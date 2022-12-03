@@ -33,8 +33,8 @@
   width: 130px;
   height: calc(100vh - 70px);
   transition: all 0.3s;
-  top: 70px;
   position: absolute;
+  top: 70px;
 }
 .sidebar .type {
   padding: 10px 10px;

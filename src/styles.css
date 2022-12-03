@@ -366,5 +366,8 @@ details[open] > summary {
     .body {
       height: calc(100vh - 80px);
     }
+    .sid {
+      top: 0;
+    }
   }
 }
