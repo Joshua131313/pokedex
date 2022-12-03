@@ -12,6 +12,7 @@
   border-radius: 10px;
   transition: all 0.3s;
   top: 0;
+  height: 100%;
 }
 .bodynav a {
   z-index: 100;
@@ -31,10 +32,10 @@
 }
 .sid {
   width: 130px;
-  height: calc(100dvh - 75px);
+  height: var(--container-height);
   transition: all 0.3s;
   position: absolute;
-  top: 75px;
+  top: var(--container-top)
 }
 .sidebar .type {
   padding: 10px 10px;
@@ -100,6 +101,13 @@
 .sidebar .appbtn {
   width: 100%;
 }
+.bodynav i {
+  display: none;
+}
+.activelink i {
+  font-weight: bold;
+  color: var(--theme-color);
+}
 @media (max-width: 800px) {
   .bodynav a {
     font-size: 15px
@@ -123,6 +131,18 @@
     flex-direction: column;
     gap: 10px;
     align-items: flex-start
+  }
+  .startendids {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bodynav span {
+    display: none;
+  }
+  .bodynav i {
+    display: block;
+    font-size: 16px;
   }
 }
 @media (max-width: 440px) {
@@ -152,6 +172,19 @@
   }
   #root .clearhistory  {
     align-self: flex-start;
-    width: 100%
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
   }
+  .clearhistory .clearhistorybtn {
+    text-align: center;
+    align-self: stretch;
+    padding: 10px 20px;
+  }
+  .filterbar  .appselect  {
+    width: 100%;
+  }
+
 }

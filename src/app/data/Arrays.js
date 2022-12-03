@@ -1,14 +1,39 @@
 export const links = [
-  { text: "Home", img: "", link: "", component: "Home", index: true },
-  { text: "Pokedex", img: "", link: "pokedex", component: "Pokedex" },
+  { 
+    text: "Home", 
+    img: "", link: "", 
+    component: "Home", 
+    index: true,
+    icon: 'home'
+  },
+  { 
+    text: "Pokedex", 
+    img: "", 
+    link: "pokedex", 
+    component: "Pokedex",
+    icon: 'books'
+  },
   {
     text: "Team Builder",
     img: "",
     link: "team-builder",
-    component: "Teambuilder"
+    component: "Teambuilder",
+    icon: "users-class"
   },
-  { text: "Videogames", img: "", link: "videogames", component: "Videogames" },
-  { text: "News", img: "", link: "news", component: "News" }
+  { 
+    text: "Videogames", 
+    img: "", 
+    link: "videogames", 
+    component: "Videogames",
+    icon: 'game-console-handheld' 
+  },
+  { 
+    text: "News", 
+    img: "", 
+    link: "news", 
+    component: "News",
+    icon: "newspaper"
+  }
 ];
 
 export const pokemonDetailsDimensions = {

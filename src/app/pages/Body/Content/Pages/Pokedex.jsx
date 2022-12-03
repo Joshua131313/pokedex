@@ -37,7 +37,7 @@ const Pokedex = () => {
   const [search, setSearch] = useState("");
   const pattern = new RegExp("\\b" + clean(search), "i");
   const [searchLoading, setSearchLoading] = useState(false);
-  const [dimension, setDimension] = useState({ value: localStorage.getItem('dimension') || 40, max: 1000, min: 15 });
+  const [dimension, setDimension] = useState({ value: localStorage.getItem('dimension') || 30, max: 1000, min: 15 });
 
   //  150 to 400
   const pokemonrow = pokemon

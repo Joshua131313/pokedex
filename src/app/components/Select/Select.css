@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 .appselect  {
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding: 10px;
   border-radius: 10px
 }
@@ -27,7 +27,8 @@
   transition: all 0.3s;
   opacity: 0;
   pointer-events: none;
-  left: 0
+  left: 0;
+  width: 100%;
 }
 .activeselect .appselectoptions {
   opacity: 1;
@@ -36,7 +37,7 @@
 }
 .selectoption {
   background-color: var(--gray);
-  padding: 3px;
+  padding: 5px;
   border-radius: 5px;
   transition: all 0.3s;
   cursor: pointer;
@@ -49,7 +50,6 @@
   background-color: #eee
 }
 .selectoption {
-  justify-content: space-between;
   margin-top: 7px;
 }
 .selectoption:first-of-type {
@@ -57,4 +57,9 @@
 }
 .selectoption i {
   margin-right: 5px;
+}
+@media (max-width: 440px) {
+  .selectoption {
+    padding: 10px;
+  }
 }

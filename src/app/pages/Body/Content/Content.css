@@ -1,7 +1,7 @@
 .content {
   position: absolute;
   left: 150px;
-  top: 70px;
+  top: var(--container-top);
   width: calc(100% - 160px);
   height: var(--container-height);
   transition: all 0.3s;
@@ -47,7 +47,7 @@
   height: var(--container-height);
   background-color: #fff;
   position: absolute;
-  top: 75px;
+  top: var(--container-top);
   box-shadow: var(--light-shadow);
   border-radius: 10px;
   z-index: 100;
@@ -57,7 +57,6 @@
 .pokemondetails .hidepokedetails {
   left: -10px;
   border-radius: 10px 0 0 10px;
-  top: 45%;
   width: 15px;
 }
 .seabar {
@@ -528,4 +527,9 @@
   margin-top: 20px;
   gap: 10px;
   justify-content: center;
+}
+@media (max-width: 580px) {
+  .listviewpoke .pokemoncard .types {
+    display: none;
+  }
 }

@@ -7,6 +7,7 @@ const Nav = () => {
   const linksrow = links.map(link=> {
     return (
       <NavLink end className={({ isActive }) => "" + (isActive ? " activelink" : "")} to={'/'+link.link}>
+        <i className={'fal fa-'+link.icon}></i>
         <span>{link.text}</span>
       </NavLink>
     )

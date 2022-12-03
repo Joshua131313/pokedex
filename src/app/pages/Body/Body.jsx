@@ -29,7 +29,7 @@ const Body = () => {
 
   useEffect(()=> {
     if(responsiveWidth) {
-      setWidth(hideSideBar?`calc(98% - 50px)`:`calc(98% - ${190}px)`)
+      setWidth(hideSideBar?`calc(98% - 70px)`:`calc(98% - ${190}px)`)
     }
     else { 
       setWidth(determineWidth())
