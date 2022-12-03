@@ -357,12 +357,11 @@ details[open] > summary {
 .appicon:active {
   transform: scale(0.97);
 }
-@supports (-webkit-overflow-scrolling: touch) {
-  /* CSS specific to iOS devices */ 
-  :root {
-    --container-height: calc(100vh - 160px)
-  }
+
   @media (max-width: 400px) {
+    :root {
+      --container-height: calc(100vh - 160px)
+    }
     .body {
       height: calc(100vh - 80px);
     }
@@ -370,4 +369,3 @@ details[open] > summary {
       top: 0;
     }
   }
-}
