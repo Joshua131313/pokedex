@@ -3,7 +3,7 @@ import useGetPokemonDetails from '../../../../../services/GetPokemonDetails'
 import Nextpoke from './Subparts/Nextpoke'
 
 const Nextprevpoke = (props) => {
-  const {pokemon} = props
+  const {pokemon, setSelected} = props
   const next = useGetPokemonDetails({pokemon: pokemon + 1})
   const prev = useGetPokemonDetails({pokemon: pokemon - 1})
   // const Nextpoke = (props) => {
@@ -23,9 +23,9 @@ const Nextprevpoke = (props) => {
   // }
   return (
     <div className="nextprevpoke bubble">
-        <Nextpoke poke={prev} />
+        <Nextpoke poke={prev} setSelected={setSelected}/>
         <div className="seperator"></div>
-        <Nextpoke poke={next} />
+        <Nextpoke poke={next} setSelected={setSelected}/>
     </div>
   )
 }

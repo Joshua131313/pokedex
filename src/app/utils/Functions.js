@@ -187,7 +187,7 @@ export const getStrengths = (multipliers) => {
   return strengths;
 };
 export const getWeaknesses = (selectedPoke) => {
-  if (selectedPoke?.id) {
+  if (selectedPoke?.id ?? selectedPoke?.pokemonId) {
     let reducedtypes = reduceTypes(selectedPoke?.types) || [];
     const multipliers = reducedtypes.length && getMultipliers(reducedtypes);
 
@@ -270,4 +270,30 @@ export const editState = (state, id, idKey) => {
     tempState,
     index
   }
+}
+export const returnPokeObj = (pokemon, extraInfo) => {
+  let pokeObj = {
+      pokemonId: pokemon.id ?? pokemon.pokemonId,
+      name: pokemon.name,
+      sprites: {
+        other: {
+          home: {
+            front_shiny: pokemon?.sprites?.other.home.front_shiny,
+            front_default: pokemon?.sprites?.other.home.front_default
+          }
+        }
+      },
+      stats: pokemon.stats,
+      types: pokemon.types,
+      abilities: pokemon.abilities
+  }
+  let extraPokeObj = {
+    ...pokeObj,
+    height: pokemon.height,
+    weight: pokemon.weight,
+    base_experience: pokemon.base_experience,
+    is_default: pokemon.is_default
+
+  }
+  return extraInfo ? extraPokeObj : pokeObj 
 }

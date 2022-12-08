@@ -22,7 +22,7 @@ const Move = (props) => {
     <div className={`move`}>
         <i className="fal fa-compact-disc"></i>
         <span className='movename'>{replaceSpecialChar(move?.move?.name)}</span>
-        <span className='learnedby'>Learned by</span>
+        {listView !== 'list' && <span className='learnedby'>Learned by</span>}
         <span className={`lmethod ${movedetail?.move_learn_method?.name === 'machine'?'uncap':''}`}>{determineText()}</span>  
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Pokemoncardinfo from '../../../../components/Pokemoncard/Pokemoncardinfo'
 import useGetSpeciesDetails from '../../../../services/GetSpeciesDetails'
@@ -9,10 +9,12 @@ import Boxinfo from './Parts/Boxinfo'
 import GenerationImages from './Parts/Subparts/GenerationImages'
 import Move from './Parts/Subparts/Move'
 import Weakness from './Parts/Subparts/Weakness'
+import { StoreContext } from "../../../../../ContextAPI";
 
 const Pokemonpage = () => {
   const location = useLocation()
   const navigate = useNavigate()
+  const {activeType} = useContext(StoreContext)
   const [pokemon, setPokemon] = useState(location.state || {})
   const [limitMoves, setLimitMoves] = useState(10)
   const [listView, setListView] = useLocalStorage('listView', 'icons')
@@ -20,9 +22,9 @@ const Pokemonpage = () => {
   const weaknesses = getWeaknesses(pokemon)
   const movesrow = (props) => {
     const {pattern, limit} = props
-    return pokemon?.moves?.filter(x=> pattern.test(replaceSpecialChar(x?.move?.name).toLowerCase())).map(move=> {
+    return pokemon?.moves?.filter(x=>  pattern.test(replaceSpecialChar(x?.move?.name).toLowerCase())).map(move=> {
       return (
-        <Move move={move} />
+        <Move move={move} listView={listView}/>
       )
     })
   }
@@ -73,8 +75,19 @@ const Pokemonpage = () => {
       <Boxinfo setListView={setListView} listView={listView}  title='Moves Learned'  showInput placeholder='Search moves...' icon='fal fa-compact-disc'>
         {props=> (
            <div className={`moves flexrow flexwrap ${listView === 'list'?'moveslistview':''}`}>
+             {
+               listView === 'list' &&
+               <div className="tabs flexrow sb">
+                 <div className="tag">
+                   Move name
+                 </div>
+                 <div className="tag">
+                   Learned by
+                 </div>
+               </div>
+             }
              {movesrow(props)}  
-            </div>
+           </div>
         )}
       </Boxinfo>
       {/* <Boxinfo title='possible moves to learn'/> */}

@@ -10,12 +10,11 @@ const useGetPokemon = ({limit=2, scrolledBtm, setScrolledBtm, offset, end, order
   const isDsc = order === 'dsc' || offset > end 
   const fetchPoke = (url, key, handleAction) => {
     axios.get(url).then((results)=> {
-      console.log(results)
       let reversed =  isDsc? [...results.data[key]].reverse():[...results.data[key]]
         if(activeType.name === 'all') {
           setPokemon(prev=> prev[0]?.name === reversed[0].name ? [...prev] : [...prev, ...reversed])
         }
-        else {
+      else {
           setPokemon(prev=> [...prev, ...reversed])
         }
         setLength(results.data.count)

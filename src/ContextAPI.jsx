@@ -26,7 +26,6 @@ const ContextAppProvider = (props) => {
     setTeams(JSON.parse(localStorage.getItem('teams')) || [])
     setInitLS(true)
   }
-  console.log(activeType)
  
   
   const authListener = () => {
@@ -78,9 +77,7 @@ const ContextAppProvider = (props) => {
       }
     }
   }, [selectedPoke, shinyArray, searchResult, curUser, teams, initLS])
-useEffect(()=> {
-  console.log(teams)
-}, [teams])
+
   return (
     <StoreContext.Provider
       value={{

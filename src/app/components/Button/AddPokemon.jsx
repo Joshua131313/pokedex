@@ -16,7 +16,7 @@ const AddPokemon = props => {
             addPokemonToTeam(team, {
               pokemonId: pokemon.id,
               name: pokemon.name,
-              imgs: pokemon.sprites,
+              sprites: pokemon.sprites,
               stats: pokemon.stats,
               types: pokemon.types,
               abilities: pokemon.abilities

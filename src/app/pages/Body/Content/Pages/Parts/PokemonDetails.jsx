@@ -18,7 +18,7 @@ import useGetTeams from '../../../../../services/GetTeams'
 const PokemonDetails = ({left, responsiveWidth}) => {
   const {hidePokeDetails, shinyArray,  setHidePokeDetails, selectedPoke, setSelectedPoke, setActiveType, teams, setTeams} = useContext(StoreContext)
   const [selected, setSelected] = useState(selectedPoke[selectedPoke.length-1])
-  const speciesDetails = useGetSpeciesDetails({pokemon: selected?.id})
+  const speciesDetails = useGetSpeciesDetails({pokemon: selected?.id ?? selected?.pokemonId})
   const [selectedAbility, setSelectedAbility] = useState('')
   const [showOptions, setShowOptions] = useState(false)
   const [openID, setOpenID] = useState(null)
@@ -69,7 +69,7 @@ const PokemonDetails = ({left, responsiveWidth}) => {
   }
   const selectedrow = selectedPoke?.map(poke=> {
     return (
-     <div className={`flexrow selectedpokeitem ${selected?.id === poke.id?'activeselectedpokeitem':''}`} onClick={()=> {setSelected(poke); setShowOptions(false)}} 
+     <div className={`flexrow selectedpokeitem ${selected?.id ?? selected?.pokemonId === poke.id?'activeselectedpokeitem':''}`} onClick={()=> {setSelected(poke); setShowOptions(false)}} 
       onContextMenu={e=> {handleDelete(e, poke.id)}}
      >
         <ImgLoaded img={shinyArray?.includes(poke?.id)?poke?.sprites?.other.home.front_shiny:poke?.sprites?.other.home.front_default} />
@@ -111,7 +111,7 @@ const PokemonDetails = ({left, responsiveWidth}) => {
       <Pokemoncardinfo classNameImg={'selectpokeimg'} pokemon={selected}/>
       <div className="innerpokemondetails flexcol">
         {
-        selected?.id ? <>
+        selected?.id ?? selected?.pokemonId ? <>
         <Title title='Pokemon Description'/>
         {speciesDetails.id && <span className='pokedescr'>{speciesDetails && replaceSpecialChar(speciesDetails?.flavor_text_entries[0]?.flavor_text)}</span>}
         <Title title='Abilties'/>
@@ -141,7 +141,7 @@ const PokemonDetails = ({left, responsiveWidth}) => {
             </div>
           </div>
         </div>
-       <Nextprevpoke pokemon={selected?.id}/>
+       <Nextprevpoke setSelected={setSelected} pokemon={selected?.id ?? selected?.pokemonId}/>
         </>
         :
         <>

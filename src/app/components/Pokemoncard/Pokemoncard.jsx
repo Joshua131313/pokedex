@@ -49,7 +49,7 @@ const Pokemoncard = (props) => {
             setHidePokeDetails(true);
           }}
           className={`pokemoncard ${
-            selectedPoke && selectedPoke.some((x) => x.id === pokemon.id)
+            selectedPoke && selectedPoke.some((x) => (x.id ?? x.pokemonId) === pokemon.id)
               ? "selectedpokecard"
               : ""
           }`}

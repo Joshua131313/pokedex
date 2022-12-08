@@ -5,6 +5,7 @@
   width: calc(100% - 160px);
   height: var(--container-height);
   transition: all 0.3s;
+  overflow-y: auto;
 }
 .pokedexpage {
   width: 100%;
@@ -402,6 +403,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 .moveslistview {
   flex-direction: column;
@@ -411,10 +413,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 40px;
   margin: 0;
   gap: 5px;
   border-radius: 0;
+  height: initial;
 }
 .moveslistview .move:first-of-type {
   border-radius: 10px 10px 0 0  
@@ -438,7 +440,7 @@
   width: 100px;
   height: 100px;
   background-color: var(--gray);
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -527,6 +529,14 @@
   margin-top: 20px;
   gap: 10px;
   justify-content: center;
+}
+.tabs {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--gray);
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
 }
 @media (max-width: 580px) {
   .listviewpoke .pokemoncard .types {

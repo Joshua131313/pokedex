@@ -41,7 +41,7 @@ const Pokemoncardinfo = (props) => {
     );
   });
   const handleImg = () => {
-    if (shinyArray?.includes(pokemon?.id)) {
+    if (shinyArray?.includes(pokemon?.id ?? pokemon?.pokemonId)) {
       return pokemon?.sprites?.other.home.front_shiny;
     } else {
       return pokemon?.sprites?.other.home.front_default;
@@ -55,7 +55,7 @@ const Pokemoncardinfo = (props) => {
         pokemon={pokemon}
         el='i'
         className={`${
-          !shinyArray?.includes(pokemon?.id) ? "fal" : "fa"
+          !shinyArray?.includes(pokemon?.id ?? pokemon?.pokemonId) ? "fal" : "fa"
         } fa-sparkles shinyicon`}
         onClick={(e) => {
           e.stopPropagation();
@@ -74,10 +74,10 @@ const Pokemoncardinfo = (props) => {
         img={handleImg()}
       />
       <div className="flexcol pokemoncardinfo" style={{ marginTop: sizes(35) }}>
-        {pokemon?.id && (
+        {(pokemon?.id ?? pokemon?.pokemonId) && (
           <>
             <span className="pokemonid" style={{ fontSize: sizes(15) }}>
-              #{pokemon.id}
+              #{pokemon?.id ?? pokemon?.pokemonId}
             </span>
             <LinkTag
               to={{

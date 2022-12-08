@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import { db } from '../../Fire'
-import { editState } from './Functions'
+import { editState, returnPokeObj } from './Functions'
 export const generateID = () => {
   return db.collection('users').doc().id
 }
@@ -106,34 +106,16 @@ export const GetFromDB = (collection, setState) => {
 }
 export const createNewTeam = (teamName, pokemon, teams, setTeams) => {
   const user = firebase.auth().currentUser
-  let pokeObj = {
-    pokemonId: pokemon.id,
-    name: pokemon.name,
-    imgs: pokemon.sprites,
-    stats: pokemon.stats,
-    types: pokemon.types,
-    abilities: pokemon.abilities
-  }
+  let pokeObj = returnPokeObj(pokemon)
   const id = generateID()
   if(user) {
     const collectionRef = db.collection('users').doc(user.uid).collection('teams').doc(id)
-    const batch = db.batch()
-    batch.set(
       collectionRef.set({
         teamId: id,
         teamName: teamName
+      }).then(()=> {
+        collectionRef.collection('pokemon').doc(pokemon.id).set(pokeObj)
       })
-    )
-    batch.set(
-      collectionRef.collection('pokemon').doc(pokemon.id).set(pokeObj)
-    )
-    batch.commit().then(()=> {}).catch(err=> console.log(err))
-    // let transaction = db.runTransaction(transaction=> {
-    //   transaction.set(collectionRef, {
-    //     teamId: id,
-    //     teamName
-    //   })
-    // })
   }
   else {
     let tempState = [...teams]
